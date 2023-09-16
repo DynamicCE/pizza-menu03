@@ -50,14 +50,57 @@ const pizzaData = [
 function App() {
   return (
     <div>
-      <h1>Hello react</h1>
-      <h2>hello</h2>
-      <Pizza />
-      <Pizza />
-      <h2>hello</h2>
-      <Pizza />
+      <Header />
+      <Menu />
       <Random />
+      <Footer />
     </div>
+  );
+}
+
+function Header() {
+  return <h1>Fast React Pizza Co.</h1>;
+}
+
+function Menu() {
+  return (
+    <div>
+      <h2>Our menu</h2>
+      <Pizza />
+      <Pizza />
+      <Pizza />
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </div>
+  );
+}
+
+function Footer() {
+  const hour = new Date().getHours(); // getHours renders a number between 0 - 23
+  const openHour = 12;
+  const closeHour = 2;
+
+  let isOpen;
+
+  if (openHour < closeHour) {
+    // Normal durum: Açılış ve kapanış saatleri aynı gün içinde
+    isOpen = hour >= openHour && hour < closeHour;
+  } else {
+    // Gece yarısını geçen durum: Açılış ve kapanış saatleri farklı günlerde
+    isOpen = hour >= openHour || hour < closeHour;
+  }
+
+  if (isOpen) {
+    alert("we are currently open! :)");
+  } else {
+    alert("Sorry, we are closed :(");
+  }
+}
+
+
+  return (
+    <footer>{new Date().toLocaleTimeString()} We are currently open!</footer>
   );
 }
 
