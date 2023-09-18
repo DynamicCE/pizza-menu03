@@ -72,6 +72,7 @@ function Menu() {
       <Pizza />
       <Pizza />
       <Pizza />
+      <Footer />
     </div>
   );
 }
@@ -86,8 +87,13 @@ function Footer() {
   if (openHour < closeHour) {
     // Normal durum: Açılış ve kapanış saatleri aynı gün içinde
     isOpen = hour >= openHour && hour < closeHour;
+    /* eğer açılış saati, kapanış saatinden küçükse yani mesela 12 de açılıp 23'de kapatıyorsak, 
+    saatimizin açılış saatinden büyük ya da eşit olması veya saatimizin kapanış saatinden önce olması Restoranın açık olduğunu gösterir
+    */
   } else {
     // Gece yarısını geçen durum: Açılış ve kapanış saatleri farklı günlerde
+    // eğer kapanış saati daha küçükse mesela 12 de açıp 2 de kapatıyorsak; saatimizin açılış saatinden yine büyük olması veya
+    // kapanış saatinden küçük olması lazım ki restoran açık olabilsin.
     isOpen = hour >= openHour || hour < closeHour;
   }
 
@@ -96,9 +102,6 @@ function Footer() {
   } else {
     alert("Sorry, we are closed :(");
   }
-}
-
-
   return (
     <footer>{new Date().toLocaleTimeString()} We are currently open!</footer>
   );
