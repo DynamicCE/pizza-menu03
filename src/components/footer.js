@@ -19,9 +19,9 @@ function Footer() {
   }
 
   if (isOpen) {
-    alert("we are currently open! :)");
+    console.log("we are currently open! :)");
   } else {
-    alert("Sorry, we are closed :(");
+    console.log("Sorry, we are closed :(");
   }
   return (
     <footer>{new Date().toLocaleTimeString()} We are currently open!</footer>
