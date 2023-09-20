@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+
 //components
 import Footer from "./components/footer";
 const pizzaData = [
@@ -51,7 +52,7 @@ const pizzaData = [
 // Fonksiyonel bileşenler
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Random />
@@ -59,63 +60,39 @@ function App() {
     </div>
   );
 }
-const style = { color: "red", fontSize: "32px", textTransform: "uppercase" };
+const style = { color: "red", fontSize: "32px", textTransform: "uppercase" }; // internal css usage.
 
 function Header() {
-  return <h1 style={style}>Fast React Pizza Co.</h1>; // css usage
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
+  ); // css usage.
 }
-
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our menu</h2>
       <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Footer />
-    </div>
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mushrooms"
+        price={13} // bu şekilde bir number yazabiliyoruz,yoksa string oluyor
+        photoName="pizzas/funghi.jpg"
+      />
+    </main>
   );
 }
-
-// function Footer() {
-//   const hour = new Date().getHours(); // getHours renders a number between 0 - 23
-//   const openHour = 12;
-//   const closeHour = 2;
-
-//   let isOpen;
-
-//   if (openHour < closeHour) {
-//     // Normal durum: Açılış ve kapanış saatleri aynı gün içinde
-//     isOpen = hour >= openHour && hour < closeHour;
-//     /* eğer açılış saati, kapanış saatinden küçükse yani mesela 12 de açılıp 23'de kapatıyorsak,
-//     saatimizin açılış saatinden büyük ya da eşit olması veya saatimizin kapanış saatinden önce olması Restoranın açık olduğunu gösterir
-//     */
-//   } else {
-//     // Gece yarısını geçen durum: Açılış ve kapanış saatleri farklı günlerde
-//     // eğer kapanış saati daha küçükse mesela 12 de açıp 2 de kapatıyorsak; saatimizin açılış saatinden yine büyük olması veya
-//     // kapanış saatinden küçük olması lazım ki restoran açık olabilsin.
-//     isOpen = hour >= openHour || hour < closeHour;
-//   }
-
-//   if (isOpen) {
-//     alert("we are currently open! :)");
-//   } else {
-//     alert("Sorry, we are closed :(");
-//   }
-//   return (
-//     <footer>{new Date().toLocaleTimeString()} We are currently open!</footer>
-//   );
-// }
-
-function Pizza() {
+function Pizza(props) {
+  console.log(props);
   return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="pizza spinaci" />
-      <h2>Pizza Prosciutto</h2>
-      <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 3}</span>
+      </div>
     </div>
   );
 }
