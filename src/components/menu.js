@@ -102,20 +102,9 @@ export default function Menu() {
       <h2>Our menu</h2>
       <div style={style.menu}>
         {pizzaData.map((pizza, index) => (
-          <Pizza
-            key={index}
-            name={pizza.name}
-            ingredients={pizza.ingredients}
-            price={pizza.price}
-            photoName={pizza.photoName}
-            soldOut={pizza.soldOut}
-            style={style.pizza}
-            imgStyle={style.pizzaImg}
-            nameStyle={style.pizzaName}
-            ingredientsStyle={style.pizzaIngredients}
-            buttonStyle={style.pizzaButton}
-            buttonHoverStyle={style.pizzaButtonHover}
-          />
+          <>
+            <Pizza pizzaObject={pizza} key={index} />
+          </>
         ))}
       </div>
     </main>
