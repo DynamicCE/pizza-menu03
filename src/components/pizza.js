@@ -1,5 +1,4 @@
 import React from "react";
-import "../style/style.css"; // CSS dosyasını dahil ediyoruz
 
 export default function Pizza(props) {
   // Fiyat yazısı için stil tanımlıyoruz
@@ -10,13 +9,9 @@ export default function Pizza(props) {
 
   return (
     <li>
-      <img
-        className="backColor"
-        src={props.pizzaObject.photoName}
-        alt={props.pizzaObject.name}
-      />
+      <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name} />
       <div>
-        <h3 className="backColor">{props.pizzaObject.name}</h3>
+        <h3>{props.pizzaObject.name}</h3>
         <p>{props.pizzaObject.ingredients}</p>
         <div>
           <span style={priceStyle}>{props.pizzaObject.price + 3}</span>{" "}
