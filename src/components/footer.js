@@ -24,7 +24,9 @@ function Footer() {
     console.log("Sorry, we are closed :(");
   }
   return (
-    <footer>{new Date().toLocaleTimeString()} We are currently open!</footer>
+    <footer className="footer">
+      {new Date().toLocaleTimeString()} We are currently open!
+    </footer>
   );
 }
 
