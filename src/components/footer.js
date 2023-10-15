@@ -1,3 +1,4 @@
+import React from "react";
 function Footer() {
   const hour = new Date().getHours(); // getHours renders a number between 0 - 23
   const openHour = 12;
@@ -25,7 +26,12 @@ function Footer() {
   }
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()} We are currently open!
+      {isOpen && (
+        <div className="order">
+          <p>we are open until {closeHour}:00 come visit us or order online</p>
+          <button className="btn">Order</button>
+        </div>
+      )}
     </footer>
   );
 }

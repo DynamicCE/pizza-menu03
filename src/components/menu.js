@@ -49,17 +49,20 @@ export default function Menu() {
       soldOut: false,
     },
   ];
-
+  const pizzas = pizzaData;
+  const numPizzas = pizzas.length;
   return (
     <main>
       <h2>Our menu</h2>
-      <div className="pizzas">
-        {pizzaData.map((pizza, index) => (
-          <>
+      {numPizzas > 0 ? (
+        <ul className="pizzas">
+          {pizzas.map((pizza, index) => (
             <Pizza pizzaObject={pizza} key={index} style={style.pizza} />
-          </>
-        ))}
-      </div>
+          ))}
+        </ul>
+      ) : (
+        <p>Sorry, we dont have any pizzas at the moment</p>
+      )}
     </main>
   );
 }
