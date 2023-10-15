@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Pizza(pizzaObject) {
+export default function Pizza({ pizzaObject }) {
   // Fiyat yazısı için stil tanımlıyoruz
   const priceStyle = {
     fontSize: "1.5rem", // Font boyutunu büyütüyoruz
