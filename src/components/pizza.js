@@ -12,7 +12,7 @@ export default function Pizza(props) {
     width: "200px", // Resim genişliğini 200px olarak ayarlıyoruz
     height: "200px", // Resim yüksekliğini 200px olarak ayarlıyoruz
   };
-
+  if (props.pizzaObject.soldOut) return null;
   return (
     <li className="pizzas">
       {/* Resime stil uyguluyoruz */}
