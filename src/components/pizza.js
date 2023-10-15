@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Pizza(props) {
+export default function Pizza(pizzaObject) {
   // Fiyat yazısı için stil tanımlıyoruz
   const priceStyle = {
     fontSize: "1.5rem", // Font boyutunu büyütüyoruz
@@ -12,22 +12,21 @@ export default function Pizza(props) {
     width: "200px", // Resim genişliğini 200px olarak ayarlıyoruz
     height: "200px", // Resim yüksekliğini 200px olarak ayarlıyoruz
   };
-  if (props.pizzaObject.soldOut) return null;
+  if (pizzaObject.soldOut) return null;
   return (
     <li className="pizzas">
       {/* Resime stil uyguluyoruz */}
       <img
-        src={props.pizzaObject.photoName}
-        alt={props.pizzaObject.name}
+        src={pizzaObject.photoName}
+        alt={pizzaObject.name}
         style={imgStyle}
       />
       <div className="pizza">
-        <h3>{props.pizzaObject.name}</h3>
-        <p>{props.pizzaObject.ingredients}</p>
+        <h3>{pizzaObject.name}</h3>
+        <p>{pizzaObject.ingredients}</p>
         <div>
           <span style={priceStyle}>
-            {props.pizzaObject.price + 3}{" "}
-            {/* Fiyat yazısına stil uyguluyoruz */}
+            {pizzaObject.price + 3} {/* Fiyat yazısına stil uyguluyoruz */}
           </span>
           <button className="btn">Order</button>
         </div>
