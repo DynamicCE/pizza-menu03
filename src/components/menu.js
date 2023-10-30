@@ -52,17 +52,24 @@ export default function Menu() {
   const pizzas = pizzaData;
   const numPizzas = pizzas.length;
   return (
-    <main>
-      <h2>Our menu</h2>
-      {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzas.map((pizza, index) => (
-            <Pizza pizzaObject={pizza} key={index} style={style.pizza} />
-          ))}
-        </ul>
-      ) : (
-        <p>Sorry, we dont have any pizzas at the moment</p>
-      )}
-    </main>
+    <>
+      <main className="menu">
+        <h2>Our menu</h2>
+
+        {numPizzas > 0 ? (
+          <div>
+            <p>Lezzetli pizzalarımız vaaaaar</p>
+            <ul className="pizzas">
+              {pizzas.map((pizza, index) => (
+                <Pizza pizzaObject={pizza} key={index} style={style.pizza} />
+              ))}
+              {/* map() fonksiyonuna bir başka fonksiyon atadık yani map(()=>{}) yapısı  */}
+            </ul>
+          </div>
+        ) : (
+          <p>Sorry, we dont have any pizzas at the moment</p>
+        )}
+      </main>
+    </>
   );
 }
