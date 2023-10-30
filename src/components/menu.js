@@ -58,7 +58,7 @@ export default function Menu() {
 
         {numPizzas > 0 ? (
           <div>
-            <p>Lezzetli pizzalarımız vaaaaar</p>
+            <p className="main-explanation">Lezzetli pizzalarımız vaaaaar</p>
             <ul className="pizzas">
               {pizzas.map((pizza, index) => (
                 <Pizza pizzaObject={pizza} key={index} style={style.pizza} />
