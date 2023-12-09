@@ -1,21 +1,21 @@
 import React from "react";
 
 export default function Pizza({ pizzaObject }) {
-  // Fiyat yazısı için stil tanımlıyoruz
+
   const priceStyle = {
-    fontSize: "1.5rem", // Font boyutunu büyütüyoruz
-    marginRight: "1rem", // Sağdan 1rem boşluk bırakıyoruz
+    fontSize: "1.5rem", 
+    marginRight: "1rem",
   };
 
-  // Resim için stil tanımlıyoruz
+
   const imgStyle = {
-    width: "200px", // Resim genişliğini 200px olarak ayarlıyoruz
-    height: "200px", // Resim yüksekliğini 200px olarak ayarlıyoruz
+    width: "200px",
+    height: "200px",
   };
   if (pizzaObject.soldOut) return null;
   return (
     <li className="pizzas">
-      {/* Resime stil uyguluyoruz */}
+     
       <img
         src={pizzaObject.photoName}
         alt={pizzaObject.name}
@@ -26,7 +26,7 @@ export default function Pizza({ pizzaObject }) {
         <p>{pizzaObject.ingredients}</p>
         <div>
           <span style={priceStyle}>
-            {pizzaObject.price + 3} {/* Fiyat yazısına stil uyguluyoruz */}
+            {pizzaObject.price + 3} 
           </span>
           <button className="btn">Order</button>
         </div>
