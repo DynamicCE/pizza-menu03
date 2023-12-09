@@ -1,7 +1,7 @@
 import React from "react";
-import Pizza from "./pizza"; // Pizza bileşenini doğru bir şekilde import ettiğinizden emin olun
+import Pizza from "./pizza"; 
 import "..";
-// Stilleri tanımlıyoruz
+
 const style = {};
 
 export default function Menu() {
